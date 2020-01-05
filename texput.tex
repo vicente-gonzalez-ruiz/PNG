@@ -1,24 +1,41 @@
-\title{PNG (Portable Network Graphics)}
+\title{\href{http://www.libpng.org/pub/png}{PNG (Portable
+  Network Graphics)}~\cite{roelofs1999png}}
 
 \maketitle
 \tableofcontents
 
-\section{Posibilities}
+\section{\href{http://www.libpng.org/pub/png/book/}{Posibilities}}
 \begin{itemize}
-\item \url{http://www.libpng.org/pub/png}.
-\item Fully lossless.
-\item Only raster (not vectorized) images.
-\item Better funtionality and performance than GIF (Graphics
-  Interchange Format), that uses an patented implementation of the LZW
-  algorithm, and TIFF (Tagged Image File Format).
+\item \href{https://en.wikipedia.org/wiki/Lossless_compression}{Fully
+  lossless}.
+\item Only
+  \href{https://en.wikipedia.org/wiki/Raster_graphics}{raster} (not
+  \href{https://en.wikipedia.org/wiki/Vector_graphics}{vectorized})
+  images.
+\item Better funtionality and performance than
+  \href{https://en.wikipedia.org/wiki/GIF}{GIF (Graphics Interchange
+    Format)}, that uses an patented implementation of the
+  \mylink{LZW}{LZW} algorithm, and
+  \href{https://en.wikipedia.org/wiki/TIFF}{TIFF (Tagged Image File
+    Format)}.
 \item Free usage and free from patents.
-\item Palletized images (up to 256 colors), true color images (up to
+\item
+  \href{https://en.wikipedia.org/wiki/Palette_(computing)}{Palletized
+    images} (up to 256 colors), true color images (up to
   48-bits/pixel) and grayscale images (up to 16-bits/pixel).
 \item On-the-fly encoding and decoding (streamability).
-\item Alpha channels (variable transparency).
-\item Gamma correction (cross-platform control of image brightness).
-\item Progressive and interlazed images.
-\item Progressive reconstructions by means of spatial scalability.
+\item \href{https://en.wikipedia.org/wiki/Alpha_compositing}{Alpha
+  channels} (variable transparency).
+\item \href{https://en.wikipedia.org/wiki/Gamma_correction}{Gamma
+  correction} (cross-platform control of image brightness).
+\item
+  \href{https://en.wikipedia.org/wiki/Progressive_scan}{Progressive}
+  and
+  \href{https://en.wikipedia.org/wiki/Interlacing_(bitmaps)}{interlazed}
+  images.
+\item
+  \href{http://www.libpng.org/pub/png/book/chapter08.html#png.ch08.div.6}{Progressive
+    reconstructions} by means of spatial scalability.
 \end{itemize} 
 
 \section{Codec}
@@ -35,10 +52,11 @@
     E = X - \hat{X}
   \end{displaymath}
   where $X$ is the pixel-value and $\hat{X}$ its prediction.
-\item The entropy of the residue image is typically smaller than the
-  original image's one, and the residues follow a Lapace probability
-  distribution, centered in 0 (the average of the prediction error is
-  0).
+\item The entropy of the residue image is typically smaller than in
+  the original image, and the residues follow a
+  \href{https://en.wikipedia.org/wiki/Laplace_distribution}{Lapace
+    probability distribution}, centered in 0 (the average of the
+  prediction error is 0).
 \item Available predictors (``filters''):
   \begin{center}
     \begin{tabular}{cc}
@@ -55,82 +73,28 @@
       \includegraphics[width=3cm]{contexto_prediccion}
     \end{tabular}
   \end{center}
-\item The predictor can be changed in the middle (of the encoding) of
-  an image.
+\item To increase the compression ratio (considering that the best
+  predictor can depend on the area of the image that is being
+  compressed), the predictor can be changed in the middle (of the
+  encoding) of an image.
 \end{itemize}
 
 \section{``Deflate'' (encoding)}
 \begin{itemize}
-\item It's a generic text-compression algorithm based on LZ77 and
-  Huffman and written by Jean-loup Gailly and Mark
-  Adler\footnote{Authors of The Data Compression Book
+\item It's a generic text-compression algorithm based on
+  \mylink{LZ77}{LZ77} and \mylink{Huffman_coding}{Huffman coding},
+  written by
+  \href{https://en.wikipedia.org/wiki/Jean-loup_Gailly}{Jean-loup
+    Gailly} and \href{https://en.wikipedia.org/wiki/Mark_Adler}{Mark
+    Adler}\footnote{Authors of The Data Compression Book
     \cite{Nelson96}}.
-\item LZ77 removes the statistical redudancy of high order (remember
-  that the preditor has removed the spatial redundancy).
-\item The Huffman encoder removes the statisctical redundancy of order
-  0. The probabilistic model used is adaptive and initially empty.
+\item LZ77 removes the statistical \mylink{redudancy} of high order
+  (remember that the preditor has removed the spatial redundancy).
+\item The Huffman encoder removes the statistical redundancy of order
+  0. The \mylink{probabilistic_models}{probabilistic model} used is
+  adaptive and initially empty.
 \end{itemize}
 
-\section*{The PPM (Portable aNyMap) container}
-% \begin{verbatim}
-% struct PGM_image {
-%   "P5\n",        /* Magic number */
-%   char width[],  /* Columns */
-%   "\n",
-%   char height[], /* Rows */
-%   "\n",
-%   char depth[],  /* 2^number_of_bits_per_component */
-%   "\n",
-%   if depth == "255" {
-%     unsigned char pixel[width][height];
-%   } else if depth == "65535" {
-%     unsigned short pixel[width][height];
-%   }
-% };
-% \end{verbatim}
-
-% \newpage
-\begin{verbatim}
-struct PPM_image {
-  "P6\n",        /* Magic number */
-  char* width, " ", height,  /* Columns and rows */
-  "\n",
-  char* depth,   /* 2^number_of_bits_per_component */
-  "\n",
-  struct RGB_pixel pixel[width][height];
-}
-
-if (depth == "255") {
-  struct RGB_pixel {
-    unsigned char R;
-    unsigned char G;
-    unsigned char B;
-  }
-} else if (depth == "65535") {
-  struct RGB_pixel {
-    unsigned short R;
-    unsigned short G;
-    unsigned short B;
-  }
-}
-\end{verbatim}
-
-% \section*{Let's go to the lab!}
-% \begin{itemize}
-% \item Use the \texttt{pnmtopng} tool for encode the sequences of
-%   \href{http://www.hpca.ual.es/~vruiz/videos/}{the Test Video
-%     Corpus}. Notice that each frame must be in PPM format.
-%   \begin{flushleft}
-%     \includegraphics[width=0.4\textwidth]{akiyo_compresion_PNG}
-%   \end{flushleft}
-% \item Fill the table: 
-% \begin{verbatim}
-% Codec | akiyo mobile parkrun stockholm Average
-% ------+---------------------------------------
-%   PNG | 
-% \end{verbatim}
-% \item What's about the temporal scalability?
-% \end{itemize}
 
 \section*{Let's go to the lab!}
 \begin{itemize}
@@ -142,4 +106,4 @@ pnmtopng |
 \end{verbatim}
 \end{itemize}
 
-\bibliography{text-compression}
+\bibliography{image-compression}
