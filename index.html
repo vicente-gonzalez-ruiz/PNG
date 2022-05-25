@@ -1,15 +1,13 @@
 <!DOCTYPE html> 
-<html> 
-<head> <title>PNG (Portable Network Graphics) [2]</title> 
-<meta charset="UTF-8" /> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<html lang="en-US" xml:lang="en-US" > 
+<head> <title>PNG (Portable Network Graphics)</title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
 <link rel="stylesheet" type="text/css" href="index.css" /> 
-<script type="text/javascript" 
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-></script> 
-<style type="text/css"> 
-.MathJax_MathML {text-indent: 0;} 
-</style> 
+<meta name="src" content="index.tex" /> 
+<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>  
 </head><body 
 >
    <div class="maketitle">
@@ -21,316 +19,250 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLor
                                                                   
 
 <h2 class="titleHead"><a 
-href="http://www.libpng.org/pub/png" >PNG (Portable Network Graphics)</a> <span class="cite">[<a 
-href="#Xroelofs1999png">2</a>]</span></h2>
+href="http://www.libpng.org/pub/png" >PNG (Portable Network Graphics)</a></h2>
  <div class="author" ><span 
 class="ecrm-1200">Vicente Gonz</span><span 
 class="ecrm-1200">á</span><span 
 class="ecrm-1200">lez Ruiz</span></div><br />
 <div class="date" ><span 
-class="ecrm-1200">January 7, 2020</span></div>
+class="ecrm-1200">May 25, 2022</span></div>
    </div>
    <h3 class="likesectionHead"><a 
  id="x1-1000"></a>Contents</h3>
    <div class="tableofcontents">
-   <span class="sectionToc" >1 <a 
-href="#x1-20001" id="QQ2-1-2">Posibilities</a></span>
-<br />   <span class="sectionToc" >2 <a 
-href="#x1-30002" id="QQ2-1-3">Codec</a></span>
-<br />   <span class="sectionToc" >3 <a 
-href="#x1-40003" id="QQ2-1-4">Filtering (encoding)</a></span>
-<br />   <span class="sectionToc" >4 <a 
-href="#x1-50004" id="QQ2-1-5">“Deﬂate” (encoding)</a></span>
-<br />   <span class="sectionToc" ><a 
-href="#Q1-1-8">References</a></span>
+    <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">What is PNG?</a></span>
+<br />    <span class="sectionToc" >2 <a 
+href="#x1-30002" id="QQ2-1-3">Posibilities</a></span>
+<br />    <span class="sectionToc" >3 <a 
+href="#x1-40003" id="QQ2-1-4">The PNG codec</a></span>
+<br />    <span class="sectionToc" >4 <a 
+href="#x1-50004" id="QQ2-1-6">Filtering (predictive encoding)</a></span>
+<br />    <span class="sectionToc" >5 <a 
+href="#x1-60005" id="QQ2-1-7">“Deﬂate” (encoding)</a></span>
+<br />    <span class="sectionToc" >6 <a 
+href="#x1-70006" id="QQ2-1-8">Resources</a></span>
    </div>
-<!--l. 7--><p class="noindent" >
+<!--l. 8--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
- id="x1-20001"></a><a 
+ id="x1-20001"></a>What is PNG?</h3>
+<!--l. 9--><p class="noindent" >PNG is an open (free of patents) raster-graphics ﬁle format, <a 
+href="https://en.wikipedia.org/wiki/Portable_Network_Graphics" >developed by the W3C</a>,
+that supports lossless image compression <span class="cite">[<a 
+href="#Xroelofs1999png">2</a>]</span>. PNG exploits the <a 
+href="https://en.wikipedia.org/wiki/Image_compression" >spatial</a> and <a 
+href="https://en.wikipedia.org/wiki/Data_compression" >statistical
+redudancy</a> (no <a 
+href="https://en.wikipedia.org/wiki/YUV" >color transform</a> is used).
+</p><!--l. 18--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a><a 
 href="http://www.libpng.org/pub/png/book/" >Posibilities</a></h3>
+                                                                  
+
+                                                                  
      <ul class="itemize1">
-     <li class="itemize"><a 
+     <li class="itemize">
+     <!--l. 20--><p class="noindent" ><a 
 href="https://en.wikipedia.org/wiki/Lossless_compression" >Fully lossless</a>.
-     </li>
-     <li class="itemize">Only <a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 22--><p class="noindent" >Only <a 
 href="https://en.wikipedia.org/wiki/Raster_graphics" >raster</a> (not <a 
 href="https://en.wikipedia.org/wiki/Vector_graphics" >vectorized</a>) images.
-     </li>
-     <li class="itemize">Better  funtionality  and  performance  than  <a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 26--><p class="noindent" >Better  funtionality  and  performance  than  <a 
 href="https://en.wikipedia.org/wiki/GIF" >GIF  (Graphics  Interchange
      Format)</a>, that uses an patented implementation of the <a 
 href="https://vicente-gonzalez-ruiz.github.io/LZW/" >LZW</a> algorithm,
      and <a 
 href="https://en.wikipedia.org/wiki/TIFF" >TIFF (Tagged Image File Format)</a>.
-                                                                  
-
-                                                                  
-     </li>
-     <li class="itemize">Free usage and free from patents.
-     </li>
-     <li class="itemize"><a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 32--><p class="noindent" >Free usage and free from patents.
+     </p></li>
+     <li class="itemize">
+     <!--l. 34--><p class="noindent" ><a 
 href="https://en.wikipedia.org/wiki/Palette_(computing)" >Palletized images</a> (up to 256 colors), true color images (up to 48-bits/pixel)
      and grayscale images (up to 16-bits/pixel).
-     </li>
-     <li class="itemize">On-the-ﬂy encoding and decoding (streamability).
-     </li>
-     <li class="itemize"><a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 37--><p class="noindent" >On-the-ﬂy encoding and decoding (streamability).
+     </p></li>
+     <li class="itemize">
+     <!--l. 38--><p class="noindent" ><a 
 href="https://en.wikipedia.org/wiki/Alpha_compositing" >Alpha channels</a> (variable transparency).
-     </li>
-     <li class="itemize"><a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 40--><p class="noindent" ><a 
 href="https://en.wikipedia.org/wiki/Gamma_correction" >Gamma correction</a> (cross-platform control of image brightness).
-     </li>
-     <li class="itemize"><a 
+     </p></li>
+     <li class="itemize">
+     <!--l. 43--><p class="noindent" ><a 
 href="https://en.wikipedia.org/wiki/Progressive_scan" >Progressive</a> and <a 
 href="https://en.wikipedia.org/wiki/Interlacing_(bitmaps)" >interlazed</a> images.
-     </li>
-     <li class="itemize"><a 
-href="http://www.libpng.org/pub/png/book/chapter08.html#png.ch08.div.6" >Progressive reconstructions</a> by means of spatial scalability.</li></ul>
-<!--l. 41--><p class="noindent" >
-</p>
-   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
- id="x1-30002"></a>Codec</h3>
-<div class="center" 
->
-<!--l. 42--><p class="noindent" >
-</p><!--l. 43--><p class="noindent" ><img 
-src="graphics/PNG_codec_ext.svg" alt="PIC"  
-width="569" height="569"  /></p></div>
-<!--l. 46--><p class="noindent" >
-</p>
-   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
- id="x1-40003"></a>Filtering (encoding)</h3>
-     <ul class="itemize1">
-     <li class="itemize">Optional.
-     </li>
-     <li class="itemize">Predictive encoder that reduces the spatial correlation.
+     </p></li>
+     <li class="itemize">
+     <!--l. 48--><p class="noindent" ><a 
+href="http://www.libpng.org/pub/png/book/chapter08.html#png.ch08.div.6" >Progressive reconstructions</a> by means of spatial scalability.</p></li></ul>
                                                                   
 
                                                                   
-     </li>
-     <li class="itemize">Pixels are translated to prediction residues (errors):
-<div class="math-display"><!--l. 51--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="block" ><mrow 
->
-                           <mi 
->E</mi> <mo 
-class="MathClass-rel">=</mo> <mi 
->X</mi> <mo 
-class="MathClass-bin">−</mo><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover>
-</mrow></math></div>
-     <!--l. 53--><p class="nopar" >
-     where <!--l. 54--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mi 
->X</mi></math> is the
-     pixel-value and <!--l. 54--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover></math>
-     its prediction.
+<!--l. 52--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>The PNG codec</h3>
+<!--l. 54--><p class="noindent" >PNG is based on <a 
+href="https://en.wikipedia.org/wiki/Differential_pulse-code_modulation" >DPCM</a> (ﬁltering in the PNG nomenclature) and the <a 
+href="https://en.wikipedia.org/wiki/DEFLATE" >DEFLATE</a>,
+which is a text compressor based on (<a 
+href="https://en.wikipedia.org/wiki/Huffman_coding" >Huﬀman coding</a> and <a 
+href="https://en.wikipedia.org/wiki/LZ77_and_LZ78" >LZ77</a>) <span class="cite">[<a 
+href="#Xnelson96datacompression">1</a>]</span>. All these “text”
+compressors are completely reversible.
+</p>
+   <figure class="figure"> 
+
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+<!--l. 67--><p class="noindent" ><div style="text-align:center;"> <img width=600 src="graphics/PNG_codec.svg" /> </div>  <a 
+ id="x1-4001r1"></a>
+<a 
+ id="x1-4002"></a>
+</p>
+<figcaption class="caption" ><span class="id">Figure 1: </span><span  
+class="content">Architecture of the PNG codec. \(\mathbf I\) represents the RGB image,and \(\mathbf E\) the
+prediction error resulting of the predictive coding. As it can be seen, DEFLATE
+does not modify \(\mathbf E\), but only ﬁnds a more compact representation of the same
+information.                                                        </span></figcaption><!--tex4ht:label?: x1-4001r3 -->
+                                                                  
+
+                                                                  
+   </figure>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-50004"></a>Filtering (predictive encoding)</h3>
+     <ul class="itemize1">
+     <li class="itemize">
+     <!--l. 77--><p class="noindent" >Optional step.
      </p></li>
-     <li class="itemize">The entropy of the residue image is typically smaller than in the original image,
+     <li class="itemize">
+     <!--l. 79--><p class="noindent" ><a 
+href="https://en.wikipedia.org/wiki/Differential_pulse-code_modulation" >DPCM (Diﬀerential Pulse Code Modulation)</a> stage that reduces the spatial
+     correlation.
+     </p></li>
+     <li class="itemize">
+     <!--l. 82--><p class="noindent" >Pixels are translated to prediction residues (errors): \begin {equation*}  {\mathbf E} = {\mathbf I} - \hat {\mathbf I}  \end {equation*}
+     where \(\hat {\mathbf I}\) is an image prediction.
+     </p></li>
+     <li class="itemize">
+     <!--l. 87--><p class="noindent" >The entropy of the residue image is typically smaller than in the original image,
      and the residues follow a <a 
 href="https://en.wikipedia.org/wiki/Laplace_distribution" >Lapace probability distribution</a>, centered in 0 (the
      average of the prediction error is 0).
-     </li>
-     <li class="itemize">Available predictors (“ﬁlters”):
+     </p></li>
+     <li class="itemize">
+     <!--l. 92--><p class="noindent" >Available predictors (“ﬁlters”): </p>
      <div class="center" 
 >
-<!--l. 61--><p class="noindent" >
+<!--l. 93--><p class="noindent" >
 </p>
 <div class="tabular"> <table id="TBL-2" class="tabular" 
-cellspacing="0" cellpadding="0"  
+ 
 ><colgroup id="TBL-2-1g"><col 
-id="TBL-2-1" /><col 
-id="TBL-2-2" /></colgroup><tr  
- style="vertical-align:baseline;" id="TBL-2-1-"><td  style="text-align:center; white-space:nowrap;" id="TBL-2-1-1"  
+id="TBL-2-1" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-1"  
+class="td11">                                <img 
+src="graphics//contexto_prediccion.svg" alt="PIC"  
+width="85" height="85"  />                                                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-2-1"  
 class="td11"> <!--tex4ht:inline--><div class="tabular"> <table id="TBL-3" class="tabular" 
-cellspacing="0" cellpadding="0"  
+ 
 ><colgroup id="TBL-3-1g"><col 
 id="TBL-3-1" /><col 
 id="TBL-3-2" /><col 
 id="TBL-3-3" /></colgroup><tr  
- style="vertical-align:baseline;" id="TBL-3-1-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-1-1"  
-class="td11">Type</td><td  style="text-align:center; white-space:nowrap;" id="TBL-3-1-2"  
-class="td11">Predictor</td><td  style="text-align:left; white-space:nowrap;" id="TBL-3-1-3"  
-class="td11">Prediction                                                                                          </td>
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-1-1"  
+class="td11">Type</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-2"  
+class="td11">Predictor</td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-3"  
+class="td11">Prediction</td>
 </tr><tr 
 class="hline"><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-3-2-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-2-1"  
-class="td11">    0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-3-2-2"  
-class="td11">  None   </td><td  style="text-align:left; white-space:nowrap;" id="TBL-3-2-3"  
-class="td11"><!--l. 66--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover> <mo 
-class="MathClass-rel">←</mo> <mn>0</mn></math></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-3-3-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-3-1"  
-class="td11"> 1</td> <td  style="text-align:center; white-space:nowrap;" id="TBL-3-3-2"  
-class="td11"> Sub </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-3-3-3"  
-class="td11"><!--l. 67--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op"> ̂</mo> </mover> <mo 
-class="MathClass-rel">←</mo> <mi 
->A</mi></math></td>
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-2-1"  
+class="td11">    0</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-2"  
+class="td11">  None   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-3"  
+class="td11">\(\hat {\mathbf I}_i\leftarrow 0\)         </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-3-1"  
+class="td11"> 1</td> <td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-2"  
+class="td11"> Sub </td> <td  style="white-space:nowrap; text-align:left;" id="TBL-3-3-3"  
+class="td11">\(\hat {\mathbf I}_i\leftarrow A\)</td>
 </tr><tr  
- style="vertical-align:baseline;" id="TBL-3-4-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-4-1"  
-class="td11">    2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-3-4-2"  
-class="td11">   Up    </td><td  style="text-align:left; white-space:nowrap;" id="TBL-3-4-3"  
-class="td11"><!--l. 68--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover> <mo 
-class="MathClass-rel">←</mo> <mi 
->B</mi></math></td>
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-4-1"  
+class="td11">    2</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-2"  
+class="td11">   Up    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-3"  
+class="td11">\(\hat {\mathbf I}_i\leftarrow B\)         </td>
 </tr><tr  
- style="vertical-align:baseline;" id="TBL-3-5-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-5-1"  
-class="td11">    3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-3-5-2"  
-class="td11"> Average </td><td  style="text-align:left; white-space:nowrap;" id="TBL-3-5-3"  
-class="td11"><!--l. 69--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover> <mo 
-class="MathClass-rel">←</mo> <mrow ><mo 
-class="MathClass-open">(</mo><mrow><mi 
->A</mi> <mo 
-class="MathClass-bin">+</mo> <mi 
->B</mi></mrow><mo 
-class="MathClass-close">)</mo></mrow><mo 
-class="MathClass-bin">∕</mo><mn>2</mn></math></td>
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-5-1"  
+class="td11">    3</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-2"  
+class="td11"> Average </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-5-3"  
+class="td11">\(\hat {\mathbf I}_i\leftarrow (A+B)/2\)         </td>
 </tr><tr  
- style="vertical-align:baseline;" id="TBL-3-6-"><td  style="text-align:right; white-space:nowrap;" id="TBL-3-6-1"  
-class="td11">    4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-3-6-2"  
-class="td11"> Paeth  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-3-6-3"  
-class="td11"><!--l. 70--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mover 
-accent="true"><mrow 
-><mi 
->X</mi></mrow><mo 
-class="MathClass-op">̂</mo></mover> <mo 
-class="MathClass-rel">←</mo> <mi 
->A</mi> <mo 
-class="MathClass-bin">+</mo> <mi 
->B</mi> <mo 
-class="MathClass-bin">−</mo> <mi 
->C</mi></math></td></tr></table></div>  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-2-1-2"  
-class="td11"> <img 
-src="graphics/contexto_prediccion.svg" alt="PIC"  
-width="85" height="85"  />  </td>
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-3-6-1"  
+class="td11">    4</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-2"  
+class="td11"> Paeth  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-6-3"  
+class="td11">\(\hat {\mathbf I}_i\leftarrow A + B - C\)         </td></tr></table>                                      </div> </td>
 </tr></table></div></div>
      </li>
-     <li class="itemize">To increase the compression ratio (considering that the best predictor can
+     <li class="itemize">
+     <!--l. 107--><p class="noindent" >To increase the compression ratio (considering that the best predictor can
      depend on the area of the image that is being compressed), the predictor can be
-     changed in the middle (of the encoding) of an image.</li></ul>
+     changed (and pbviously this is signaled) in the “middle” of the encoding of an
+     image.</p></li></ul>
                                                                   
 
                                                                   
-<!--l. 82--><p class="noindent" >
+<!--l. 113--><p class="noindent" >
 </p>
-   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x1-50004"></a>“Deﬂate” (encoding)</h3>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-60005"></a>“Deﬂate” (encoding)</h3>
      <ul class="itemize1">
-     <li class="itemize">It’s a generic text-compression algorithm based on <a 
+     <li class="itemize">
+     <!--l. 115--><p class="noindent" >It’s a generic text-compression algorithm based on <a 
 href="https://vicente-gonzalez-ruiz.github.io/LZ77/" >LZ77</a> and <a 
 href="https://vicente-gonzalez-ruiz.github.io/Huffman_coding/" >Huﬀman
      coding</a>, written by <a 
 href="https://en.wikipedia.org/wiki/Jean-loup_Gailly" >Jean-loup Gailly</a> and <a 
 href="https://en.wikipedia.org/wiki/Mark_Adler" >Mark Adler</a><span class="footnote-mark"><a 
-href="index2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a 
- id="x1-5001f1"></a> .
-     </li>
-     <li class="itemize">LZ77 removes the statistical <a 
+href="#fn1x0" id="fn1x0-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-6001f1"></a>.
+     </p></li>
+     <li class="itemize">
+     <!--l. 122--><p class="noindent" >LZ77 removes the statistical <a 
 href="https://vicente-gonzalez-ruiz.github.io/redundancy/" >redundancy</a> of high order (remember that the
      preditor has removed the spatial redundancy).
-     </li>
-     <li class="itemize">The Huﬀman encoder removes the statistical redundancy of order 0. The
+     </p></li>
+     <li class="itemize">
+     <!--l. 125--><p class="noindent" >The Huﬀman encoder removes the statistical redundancy of order 0. The
      <a 
-href="https://vicente-gonzalez-ruiz.github.io/probabilistic_models/" >probabilistic model</a> used is adaptive and initially empty.</li></ul>
-<!--l. 100--><p class="noindent" >
+href="https://vicente-gonzalez-ruiz.github.io/probabilistic_models/" >probabilistic model</a> used is adaptive and initially empty.</p></li></ul>
+<!--l. 146--><p class="noindent" >
 </p>
-   <h3 class="likesectionHead"><a 
- id="x1-60004"></a>Let’s go to the lab!</h3>
-     <ul class="itemize1">
-     <li class="itemize">Fill-up  the  following  table:
-     <!--tex4ht:inline--><div class="tabular"> <table id="TBL-4" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-4-1g"><col 
-id="TBL-4-1" /></colgroup><colgroup id="TBL-4-2g"><col 
-id="TBL-4-2" /><col 
-id="TBL-4-3" /><col 
-id="TBL-4-4" /><col 
-id="TBL-4-5" /></colgroup><colgroup id="TBL-4-6g"><col 
-id="TBL-4-6" /></colgroup><tr 
-class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-1-"><td  style="text-align:right; white-space:nowrap;" id="TBL-4-1-1"  
-class="td11">        </td><td colspan="4" style="text-align:center; white-space:nowrap;" id="TBL-4-1-2"  
-class="td11">              <div class="multicolumn"  style="text-align:center; white-space:nowrap;">Image</div>                      </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-1-6"  
-class="td11">                         </td>
-</tr><tr 
-class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-2-"><td  style="text-align:right; white-space:nowrap;" id="TBL-4-2-1"  
-class="td11">  Codec  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-2-2"  
-class="td11"> <a 
-href="http://www.hpca.ual.es/~vruiz/images/lena.png" >lena</a>  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-2-3"  
-class="td11"> <a 
-href="http://www.hpca.ual.es/~vruiz/images/boats.png" >boats</a>  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-2-4"  
-class="td11"> <a 
-href="http://www.hpca.ual.es/~vruiz/images/peppers.png" >pepers</a>  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-2-5"  
-class="td11"> <a 
-href="http://www.hpca.ual.es/~vruiz/images/zelda.png" >zelda</a>  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-2-6"  
-class="td11"> Average <a 
-href="https://en.wikipedia.org/wiki/Data_compression_ratio" >Compression Ratio</a>  </td>
-</tr><tr 
-class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-3-"><td  style="text-align:right; white-space:nowrap;" id="TBL-4-3-1"  
-class="td11"> <a 
-href="https://imagemagick.org/script/convert.php" >convert</a>  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-3-2"  
-class="td11">      </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-3-3"  
-class="td11">       </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-3-4"  
-class="td11">        </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-3-5"  
-class="td11">       </td><td  style="text-align:left; white-space:nowrap;" id="TBL-4-3-6"  
-class="td11">                         </td></tr><tr 
-class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-4-"><td  style="text-align:right; white-space:nowrap;" id="TBL-4-4-1"  
-class="td11"> </td>
-</tr></table></div></li></ul>
-<!--l. 1--><p class="noindent" >
-</p>
-   <h3 class="likesectionHead"><a 
- id="x1-70004"></a>References</h3>
-<!--l. 1--><p class="noindent" >
-   </p><div class="thebibliography">
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-70006"></a>Resources</h3>
+   <div class="thebibliography">
    <p class="bibitem" ><span class="biblabel">
  [1]<span class="bibsp">   </span></span><a 
- id="Xnelson96"></a>M. <!--l. 4--><math 
- xmlns="http://www.w3.org/1998/Math/MathML"  
-display="inline" ><mi mathvariant="normal">N</mi></math>elson
-   and J. Gailly. <a 
-href="https://pdfs.semanticscholar.org/6a25/d08e1697dcd97e8f86ffdfe7cf0e23b0f7f1.pdf" ><span 
-class="ecti-1000">The Data Compression Book</span></a>. M&#x0026;T Books, 1996.
+ id="Xnelson96datacompression"></a>Nelson M. and Gailly J.  <a 
+href="http://index-of.co.uk/Information-Theory/The%20Data%20Compression%20Book%202nd%20Ed%20-%20Mark%20Nelson.pdf" ><span 
+class="ecti-1000">The Data Compression Book</span></a>.  M&#x0026;T Books,
+   1996.
    </p>
    <p class="bibitem" ><span class="biblabel">
  [2]<span class="bibsp">   </span></span><a 
@@ -338,14 +270,16 @@ class="ecti-1000">The Data Compression Book</span></a>. M&#x0026;T Books, 1996.
 href="http://www.libpng.org/pub/png/book/" ><span 
 class="ecti-1000">PNG: the deﬁnitive guide</span></a>.  O’Reilly
    &#x0026; Associates, Inc., 1999.
-                                                                  
-
-                                                                  
 </p>
    </div>
-<a 
- id="Q1-1-8"></a>
-    
+   <div class="footnotes"><!--l. 121--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span><span 
+class="ecrm-0800">Authors of The Data Compression Book </span><span class="cite"><span 
+class="ecrm-0800">[</span><a 
+href="#Xnelson96datacompression"><span 
+class="ecrm-0800">1</span></a><span 
+class="ecrm-0800">]</span></span></p>                                                           </div>
+ 
 </body> 
 </html>
                                                                   

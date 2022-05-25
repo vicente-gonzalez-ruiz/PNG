@@ -1,8 +1,19 @@
+% Emacs, this is -*-latex-*-
 \title{\href{http://www.libpng.org/pub/png}{PNG (Portable
-  Network Graphics)}~\cite{roelofs1999png}}
+  Network Graphics)}}
 
 \maketitle
 \tableofcontents
+
+\section{What is PNG?}
+PNG is an open (free of patents) raster-graphics file
+format, \href{https://en.wikipedia.org/wiki/Portable_Network_Graphics}{developed
+by the W3C}, that supports lossless image
+compression~\cite{roelofs1999png}. PNG exploits the
+\href{https://en.wikipedia.org/wiki/Image_compression}{spatial} and
+\href{https://en.wikipedia.org/wiki/Data_compression}{statistical
+  redudancy} (no \href{https://en.wikipedia.org/wiki/YUV}{color
+transform} is used).
 
 \section{\href{http://www.libpng.org/pub/png/book/}{Posibilities}}
 \begin{itemize}
@@ -38,20 +49,41 @@
     reconstructions} by means of spatial scalability.
 \end{itemize} 
 
-\section{Codec}
-\begin{center}
-\includegraphics[width=20cm]{PNG_codec_ext}
-\end{center}
+\section{The PNG codec}
 
-\section{Filtering (encoding)}
+PNG is based on
+\href{https://en.wikipedia.org/wiki/Differential_pulse-code_modulation}{DPCM}
+(filtering in the PNG nomenclature) and the
+\href{https://en.wikipedia.org/wiki/DEFLATE}{DEFLATE}, which is a text
+compressor based on
+(\href{https://en.wikipedia.org/wiki/Huffman_coding}{Huffman coding}
+and
+\href{https://en.wikipedia.org/wiki/LZ77_and_LZ78}{LZ77})~\cite{nelson96datacompression}. All
+these ``text'' compressors are completely reversible.
+
+\begin{figure}
+  \centering
+  %\includegraphics[width=20cm]{PNG_codec_ext}
+  \svgfig{graphics/PNG_codec}{6cm}{600}
+  \caption{Architecture of the PNG codec. ${\mathbf I}$ represents the
+    RGB image,and ${\mathbf E}$ the prediction error resulting of the
+    predictive coding. As it can be seen, DEFLATE does not modify
+    ${\mathbf E}$, but only finds a more compact representation of the
+    same information.}
+\end{figure}
+
+\section{Filtering (predictive encoding)}
 \begin{itemize}
-\item Optional.
-\item Predictive encoder that reduces the spatial correlation.
+\item Optional step.
+\item
+  \href{https://en.wikipedia.org/wiki/Differential_pulse-code_modulation}{DPCM
+    (Differential Pulse Code Modulation)} stage that reduces the
+  spatial correlation.
 \item Pixels are translated to prediction residues (errors):
-  \begin{displaymath}
-    E = X - \hat{X}
-  \end{displaymath}
-  where $X$ is the pixel-value and $\hat{X}$ its prediction.
+  \begin{equation*}
+    {\mathbf E} = {\mathbf I} - \hat{\mathbf I}
+  \end{equation*}
+  where $\hat{\mathbf I}$ is an image prediction.
 \item The entropy of the residue image is typically smaller than in
   the original image, and the residues follow a
   \href{https://en.wikipedia.org/wiki/Laplace_distribution}{Lapace
@@ -59,24 +91,23 @@
   prediction error is 0).
 \item Available predictors (``filters''):
   \begin{center}
-    \begin{tabular}{cc}
+    \begin{tabular}{c}
+      \includegraphics[width=3cm]{contexto_prediccion} \\
       \begin{tabular}{rcl}
         Type & Predictor & Prediction \\
         \hline
-        0 &	None 	& $\hat{X}\leftarrow 0$ \\
-        1 &	Sub 	& $\hat{X}\leftarrow A$ \\
-        2 &	Up 	& $\hat{X}\leftarrow B$ \\
-        3 &	Average & $\hat{X}\leftarrow (A+B)/2$ \\
-        4 &	Paeth 	& $\hat{X}\leftarrow A + B - C$
+        0 &	None 	& $\hat{\mathbf I}_i\leftarrow 0$ \\
+        1 &	Sub 	& $\hat{\mathbf I}_i\leftarrow A$ \\
+        2 &	Up 	& $\hat{\mathbf I}_i\leftarrow B$ \\
+        3 &	Average & $\hat{\mathbf I}_i\leftarrow (A+B)/2$ \\
+        4 &	Paeth 	& $\hat{\mathbf I}_i\leftarrow A + B - C$
       \end{tabular}
-      &
-      \includegraphics[width=3cm]{contexto_prediccion}
     \end{tabular}
   \end{center}
 \item To increase the compression ratio (considering that the best
   predictor can depend on the area of the image that is being
-  compressed), the predictor can be changed in the middle (of the
-  encoding) of an image.
+  compressed), the predictor can be changed (and pbviously this is
+  signaled) in the ``middle'' of the encoding of an image.
 \end{itemize}
 
 \section{``Deflate'' (encoding)}
@@ -87,7 +118,7 @@
   \href{https://en.wikipedia.org/wiki/Jean-loup_Gailly}{Jean-loup
     Gailly} and \href{https://en.wikipedia.org/wiki/Mark_Adler}{Mark
     Adler}\footnote{Authors of The Data Compression Book
-    \cite{nelson96}}.
+    \cite{nelson96datacompression}}.
 \item LZ77 removes the statistical \mylink{redundancy}{redundancy} of
   high order (remember that the preditor has removed the spatial
   redundancy).
@@ -96,7 +127,7 @@
   adaptive and initially empty.
 \end{itemize}
 
-
+\begin{comment}
 \section*{Let's go to the lab!}
 \begin{itemize}
 \item Fill-up the following table:
@@ -110,5 +141,9 @@
     \hline
   \end{tabular}
 \end{itemize}
+\end{comment}
 
+\section{Resources}
+
+\renewcommand{\addcontentsline}[3]{}% Remove functionality of \addcontentsline
 \bibliography{image-compression, text-compression}

@@ -1,8 +1,8 @@
-#FIG 3.2  Produced by xfig version 3.2.5b
+#FIG 3.2  Produced by xfig version 3.2.7
 Landscape
 Center
 Inches
-Letter  
+Letter
 100.00
 Single
 -2
@@ -23,8 +23,8 @@ Single
 	1 1 1.00 120.00 120.00
 	1 1 1.00 120.00 120.00
 	 6600 3600 7200 3600
-4 1 0 51 -1 0 12 0.0000 6 165 270 2100 3450 $I$\001
-4 1 0 51 -1 0 12 0.0000 6 165 270 3900 3450 $I$\001
-4 1 0 51 -1 0 12 0.0000 6 165 270 6900 3450 $I$\001
-4 1 0 51 -1 -1 12 0.0000 6 180 5160 3000 3675 \\begin{tabular}{c}Filtering\\\\(Predictive\\\\Coding)\\end{tabular}\001
-4 1 0 51 -1 -1 12 0.0000 6 180 4830 5400 3675 \\begin{tabular}{c}Deflate\\\\(LZ77 + Huffman)\\end{tabular}\001
+4 1 0 51 -1 0 12 0.0000 6 210 1200 2100 3450 ${\\mathbf I}$\001
+4 1 0 51 -1 0 12 0.0000 6 210 1260 3900 3450 ${\\mathbf E}$\001
+4 1 0 51 -1 0 12 0.0000 6 210 1260 6900 3450 ${\\mathbf E}$\001
+4 1 0 51 -1 -1 12 0.0000 6 195 5415 3000 3675 \\begin{tabular}{c}Filtering\\\\(Predictive\\\\Coding)\\end{tabular}\001
+4 1 0 51 -1 -1 12 0.0000 6 195 5505 5400 3675 \\begin{tabular}{c}DEFLATE\\\\(LZ77 + Huffman)\\end{tabular}\001
