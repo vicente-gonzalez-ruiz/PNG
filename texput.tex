@@ -132,6 +132,10 @@ code-streams are generated.
 \item The Huffman encoder removes the statistical redundancy of order
   0. The \mylink{probabilistic_models}{probabilistic model} used is
   adaptive and initially empty.
+\item The amount of redundancy removed depends on several factors
+  (such as the configuration of the DEFLATE parameters and the
+  information stored in the image) resulting in an unpredictable
+  output bit-rate.
 \end{itemize}
 
 \section{Entropy and lossless compression}

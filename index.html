@@ -145,11 +145,15 @@ generated.
      preditor has removed the spatial redundancy).
      </li>
      <li class='itemize'>The Huffman encoder removes the statistical redundancy of order 0. The
-     <a href='https://vicente-gonzalez-ruiz.github.io/probabilistic_models/'>probabilistic model</a> used is adaptive and initially empty.</li></ul>
-<!-- l. 137 --><p class='noindent'>
+     <a href='https://vicente-gonzalez-ruiz.github.io/probabilistic_models/'>probabilistic model</a> used is adaptive and initially empty.
+     </li>
+     <li class='itemize'>The amount of redundancy removed depends on several factors (such as
+     the configuration of the DEFLATE parameters and the information stored
+     in the image) resulting in an unpredictable output bit-rate.</li></ul>
+<!-- l. 141 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='entropy-and-lossless-compression'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Entropy and lossless compression</h3>
-<!-- l. 138 --><p class='noindent'>To estimate the <a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
+<!-- l. 142 --><p class='noindent'>To estimate the <a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
      </p><ol class='enumerate1'>
 <li class='enumerate' id='x1-7002x1'>Compute the <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>0-order (memoryless source) entropy</a> of the signal: the higher
      the  entropy,  the  lower  the  redudancy.  In  fact,  if  we  suppose  that  the
@@ -158,9 +162,6 @@ generated.
      most efficient entropy compressor). Unfortunately, the 0-order entropy is
      usually only a estimation of the redundancy, i.e., lower bit-rates can be
      achieved in practice after using a high-order decorrelation.
-                                                                  
-
-                                                                  
      </li>
 <li class='enumerate' id='x1-7004x2'>A better way is to use an <a href='https://en.wikipedia.org/wiki/Data_compression'>lossless compressor</a>: the higher the length of the
      compressed file compared to the length of the original file, the lower the
@@ -168,7 +169,7 @@ generated.
      Notice,  however,  that  although  this  estimation  is  more  accurate  than
      the 0-order entropy, in general, it depends on the compressor (different
      algoritms can provide different estimations).</li></ol>
-<!-- l. 182 --><p class='noindent'>
+<!-- l. 186 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='resources'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Resources</h3>
    <div class='thebibliography'>
@@ -184,7 +185,7 @@ generated.
    <div class='footnotes'><!-- l. 11 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>Notice that only the first part of the video describes PNG. The second part refers to QOI
 </span><span class='ecrm-0800'>that is a different image compression scheme.</span></p>
 <!-- l. 128 --><p class='noindent'><span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>Authors of The Data Compression Book </span><span class='cite'><span class='ecrm-0800'>[</span><a href='#Xnelson96datacompression'><span class='ecrm-0800'>1</span></a><span class='ecrm-0800'>]</span></span></p>
-<!-- l. 160 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
+<!-- l. 164 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
 </span><span class='ecrm-0800'>file,  then,  for  the  compressor  that  we  are  using,  there  is  not  redundancy  in  the  original
 </span><span class='ecrm-0800'>representation.</span></p>                                                                                                      </div>
  
