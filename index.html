@@ -19,7 +19,7 @@
 
 <h2 class='titleHead'><a href='http://www.libpng.org/pub/png'>PNG (Portable Network Graphics)</a></h2>
  <div class='author'><span class='ecrm-1200'>Vicente González Ruiz</span></div><br />
-<div class='date'><span class='ecrm-1200'>July 30, 2022</span></div>
+<div class='date'><span class='ecrm-1200'>July 31, 2022</span></div>
    </div>
    <h3 class='likesectionHead' id='contents'><a id='x1-1000'></a>Contents</h3>
    <div class='tableofcontents'>
@@ -73,9 +73,9 @@ supports lossless image compression <span class='cite'>[<a href='#Xroelofs1999p
 <!-- l. 55 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='the-png-codec'><span class='titlemark'>3   </span> <a id='x1-40003'></a>The PNG codec</h3>
-<!-- l. 57 --><p class='noindent'>PNG is based on <a href='https://en.wikipedia.org/wiki/Differential_pulse-code_modulation'>DPCM</a> (filtering in the PNG nomenclature) and the <a href='https://en.wikipedia.org/wiki/DEFLATE'>DEFLATE</a>,
-which is a text compressor based on (<a href='https://en.wikipedia.org/wiki/Huffman_coding'>Huffman coding</a> and <a href='https://en.wikipedia.org/wiki/LZ77_and_LZ78'>LZ77</a>) <span class='cite'>[<a href='#Xnelson96datacompression'>1</a>]</span>. All these “text”
-compressors are completely reversible.
+<!-- l. 57 --><p class='noindent'>PNG <span class='cite'>[<a href='#Xsayood2002lossless'>4</a>, <span class='ecbx-1000'>?</span>, <a href='#Xsalomon2004data'>3</a>]</span> is based on <a href='https://en.wikipedia.org/wiki/Differential_pulse-code_modulation'>DPCM</a> (filtering in the PNG nomenclature) and the
+<a href='https://en.wikipedia.org/wiki/DEFLATE'>DEFLATE</a>, which is a text compressor based on (<a href='https://en.wikipedia.org/wiki/Huffman_coding'>Huffman coding</a> and <a href='https://en.wikipedia.org/wiki/LZ77_and_LZ78'>LZ77</a>) <span class='cite'>[<a href='#Xnelson96datacompression'>1</a>]</span>. All
+these “text” compressors are completely reversible.
 </p>
    <figure class='figure'> 
 
@@ -133,8 +133,11 @@ generated.
      <li class='itemize'>To increase the compression ratio (considering that the best predictor can
      depend on the area of the image that is being compressed), the predictor can be
      changed (and pbviously this is signaled) in the “middle” of the encoding of an
-     image.</li></ul>
-<!-- l. 120 --><p class='noindent'>
+     image.
+     </li>
+     <li class='itemize'>The determination of the best predictor is performed row by row, and usually
+     the filter that get the lowest <a href='https://en.wikipedia.org/wiki/Mean_squared_error'>MSE</a> is selected.</li></ul>
+<!-- l. 124 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='deflate-encoding'><span class='titlemark'>5   </span> <a id='x1-60005'></a>“Deflate” (encoding)</h3>
      <ul class='itemize1'>
@@ -150,10 +153,13 @@ generated.
      <li class='itemize'>The amount of redundancy removed depends on several factors (such as
      the configuration of the DEFLATE parameters and the information stored
      in the image) resulting in an unpredictable output bit-rate.</li></ul>
-<!-- l. 141 --><p class='noindent'>
+                                                                  
+
+                                                                  
+<!-- l. 145 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='entropy-and-lossless-compression'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Entropy and lossless compression</h3>
-<!-- l. 142 --><p class='noindent'>To estimate the <a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
+<!-- l. 146 --><p class='noindent'>To estimate the <a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
      </p><ol class='enumerate1'>
 <li class='enumerate' id='x1-7002x1'>Compute the <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>0-order (memoryless source) entropy</a> of the signal: the higher
      the  entropy,  the  lower  the  redudancy.  In  fact,  if  we  suppose  that  the
@@ -169,23 +175,33 @@ generated.
      Notice,  however,  that  although  this  estimation  is  more  accurate  than
      the 0-order entropy, in general, it depends on the compressor (different
      algoritms can provide different estimations).</li></ol>
-<!-- l. 186 --><p class='noindent'>
+<!-- l. 190 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='resources'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Resources</h3>
    <div class='thebibliography'>
    <p class='bibitem'><span class='biblabel'>
- [1]<span class='bibsp'>   </span></span><a id='Xnelson96datacompression'></a>Nelson M. and Gailly J.  <a href='http://index-of.co.uk/Information-Theory/The%20Data%20Compression%20Book%202nd%20Ed%20-%20Mark%20Nelson.pdf'><span class='ecti-1000'>The Data Compression Book</span></a>.  M&amp;T Books,
+ [1]<span class='bibsp'>   </span></span><a id='Xnelson96datacompression'></a>Nelson M. and Gailly J.  <a href='https://theswissbay.ch/pdf/Gentoomen%20Library/Information%20Theory/Compression/The%20Data%20Compression%20Book%202nd%20Ed%20-%20Mark%20Nelson.pdf'><span class='ecti-1000'>The Data Compression Book</span></a>.  M&amp;T Books,
    1996.
    </p>
    <p class='bibitem'><span class='biblabel'>
  [2]<span class='bibsp'>   </span></span><a id='Xroelofs1999png'></a>Greg Roelofs and Richard Koman.  <a href='http://www.libpng.org/pub/png/book/'><span class='ecti-1000'>PNG: the definitive guide</span></a>.  O’Reilly
    &amp; Associates, Inc., 1999.
+   </p>
+   <p class='bibitem'><span class='biblabel'>
+ [3]<span class='bibsp'>   </span></span><a id='Xsalomon2004data'></a>David Salomon.  <a href='https://theswissbay.ch/pdf/Gentoomen%20Library/Information%20Theory/Compression/Data%20Compression%20The%20Complete%20Reference%203rd%20Ed%20-%20David%20Salomon.pdf'><span class='ecti-1000'>Data Compression: The Complete Reference</span></a>.  Springer
+   Science &amp; Business Media, 2004.
+                                                                  
+
+                                                                  
+   </p>
+   <p class='bibitem'><span class='biblabel'>
+ [4]<span class='bibsp'>   </span></span><a id='Xsayood2002lossless'></a>Khalid Sayood. <a href='https://vdoc.pub/download/lossless-compression-handbook-communications-networking-and-multimedia-3ds33h66d2n0'><span class='ecti-1000'>Lossless Compression Handbook</span></a>. Elsevier, 2002.
 </p>
    </div>
    <div class='footnotes'><!-- l. 11 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>Notice that only the first part of the video describes PNG. The second part refers to QOI
 </span><span class='ecrm-0800'>that is a different image compression scheme.</span></p>
-<!-- l. 128 --><p class='noindent'><span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>Authors of The Data Compression Book </span><span class='cite'><span class='ecrm-0800'>[</span><a href='#Xnelson96datacompression'><span class='ecrm-0800'>1</span></a><span class='ecrm-0800'>]</span></span></p>
-<!-- l. 164 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
+<!-- l. 132 --><p class='noindent'><span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>Authors of The Data Compression Book </span><span class='cite'><span class='ecrm-0800'>[</span><a href='#Xnelson96datacompression'><span class='ecrm-0800'>1</span></a><span class='ecrm-0800'>]</span></span></p>
+<!-- l. 168 --><p class='noindent'><span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
 </span><span class='ecrm-0800'>file,  then,  for  the  compressor  that  we  are  using,  there  is  not  redundancy  in  the  original
 </span><span class='ecrm-0800'>representation.</span></p>                                                                                                      </div>
  

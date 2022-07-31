@@ -54,7 +54,7 @@ compression~\cite{roelofs1999png}. PNG exploits the intra-channel
 
 \section{The PNG codec}
 
-PNG is based on
+PNG~\cite{sayood2002lossless,miano1999compressed,salomon2004data} is based on
 \href{https://en.wikipedia.org/wiki/Differential_pulse-code_modulation}{DPCM}
 (filtering in the PNG nomenclature) and the
 \href{https://en.wikipedia.org/wiki/DEFLATE}{DEFLATE}, which is a text
@@ -115,6 +115,10 @@ code-streams are generated.
   predictor can depend on the area of the image that is being
   compressed), the predictor can be changed (and pbviously this is
   signaled) in the ``middle'' of the encoding of an image.
+\item The determination of the best predictor is performed row by row,
+  and usually the filter that get the lowest
+  \href{https://en.wikipedia.org/wiki/Mean_squared_error}{MSE} is
+  selected.
 \end{itemize}
 
 \section{``Deflate'' (encoding)}
@@ -186,4 +190,4 @@ we have basically two options:
 \section{Resources}
 
 \renewcommand{\addcontentsline}[3]{}% Remove functionality of \addcontentsline
-\bibliography{image-compression, text-compression}
+\bibliography{image-compression, text-compression, data-compression}
